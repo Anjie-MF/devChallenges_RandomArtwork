@@ -14,16 +14,18 @@
 
 <body>
     <div class="content-wrapper">
-        <h1 class="speakerName">Speaker Name</h1>
+        <h1 class="speakerName"></h1>
         <div class="buttonContainer">
             <button class="famousQuotesButton">Famous Quotes</button>
             <button class="inspirationalQuotesButton">Inspirational Quotes</button>
         </div>
-        <div class="quoteContainer">"Insert quote here"</div>
+        <div class="quoteContainer">""</div>
     </div>
     <div class="img-wrapper">
-        <img src="img/Regroup.svg" class="img1" alt="click here to a random quote">
-        <img src="img/link.svg"  class="img2" alt="click here to copy quote to clipboard">
+        <img src="img/Regroup.svg" class="img1" id="randomQuote" onclick="getRandomQuote()"
+            alt="click here to receive a random quote">
+        <img src="img/link.svg" class="img2" id="copyMe" onclick="copyContent()"
+            alt="click here to copy quote to clipboard">
     </div>
 </body>
 
