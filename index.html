@@ -9,23 +9,23 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
-    <title>Random Quotes</title>
+    <title>Random Art</title>
 </head>
 
 <body>
     <div class="content-wrapper">
-        <h1 class="speakerName"></h1>
-        <div class="buttonContainer">
-            <button class="famousQuotesButton">Famous Quotes</button>
-            <button class="inspirationalQuotesButton">Inspirational Quotes</button>
+        <h1 class="artistName" id="artistName">Loading artwork...</h1>
+        <div class="imageContainer">
+            <button class="contemporaryArtButton">Contemporary Art</button>
+            <button class="classicalArtButton">Classical Art</button>
         </div>
-        <div class="quoteContainer">""</div>
+        <div class="pictureOfArt" id="pictureOfArt">
+            <img src="img/placeholder.jpg" alt="Random artwork placeholder" id="artImage" style="max-width: 100%;">
+        </div>
     </div>
     <div class="img-wrapper">
-        <img src="img/Regroup.svg" class="img1" id="randomQuote" onclick="getRandomQuote()"
-            alt="click here to receive a random quote">
-        <img src="img/link.svg" class="img2" id="copyMe" onclick="copyContent()"
-            alt="click here to copy quote to clipboard">
+        <img src="img/Regroup.svg" class="img1" id="randomArt" alt="click here to receive a random artwork">
+        <img src="img/link.svg" class="img2" id="copyMe" alt="click here to copy artwork to clipboard">
     </div>
 </body>
 
