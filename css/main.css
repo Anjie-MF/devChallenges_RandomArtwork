@@ -95,9 +95,10 @@ textarea:not([rows]) {
 
 /* ---------------------Mobile Style-------------------------*/
 body {
-    /* display: flex;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center; */
+    align-items: center;
     background-color: #111729;
 }
 
@@ -113,20 +114,20 @@ body {
     border-radius: 20px;
 }
 
-.speakerName {
+.artistName {
     color: #97A3B6;
     font-family: "Outfit", sans-serif;
     font-size: 1.5rem;
 }
 
-.buttonContainer {
+.imageContainer {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.famousQuotesButton,
-.inspirationalQuotesButton {
+.contemporaryArtButton,
+.classicalArtButton {
     border: 1px solid #6466E9;
     background-color: #20293A;
     color: #6466E9;
@@ -138,10 +139,41 @@ body {
     cursor: pointer;
 }
 
-.quoteContainer {
+.pictureOfArt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    padding: 10px;
+    width: 100%;
+    max-width: 800px;
+    background-color: #20293A;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.pictureOfArt img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+#artistName {
     color: #97A3B6;
     font-family: "Outfit", sans-serif;
     font-size: 1.5rem;
+    text-align: center;
+    margin: 10px 0;
+}
+
+#artistName.error {
+    color: #FF4C4C;
+    font-style: italic;
+    font-weight: bold;
+    text-align: cener;
 }
 
 .img-wrapper {
@@ -157,8 +189,78 @@ body {
 .img2 {
     border: 2px solid #97A3B6;
     color: #97A3B6;
-    padding: 10px 50px 20px;
+    padding: 10px 15px 5px;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 /* ---------------------Desktop Styles-------------------------*/
-@media only screen and (min-width: 768px) {}
+@media only screen and (min-width: 768px) {
+    .content-wrapper {
+        max-width: 1000px;
+        padding: 20px;
+        background-size: cover;
+    }
+
+    .artistName {
+        font-size: 2rem;
+    }
+
+    .contemporaryArtButton,
+    .classicalArtButton {
+        padding: 12px 20px;
+        font-size: 0.75rem;
+    }
+
+    .pictureOfArt {
+        max-width: 600px;
+    }
+
+    .img-wrapper {
+        padding: 20px 60px;
+    }
+
+    .img-wrapper .img1,
+    .img2 {
+        padding: 15px 20px;
+        cursor: pointer;
+    }
+}
+
+/* ---------------------Desktop Styles-------------------------*/
+@media only screen and (min-width: 1280px) {
+    .content-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-width: 1500px;
+        padding: 40px;
+        background-size: cover;
+    }
+
+    .artistName {
+        font-size: 3rem;
+    }
+
+    .contemporaryArtButton,
+    .classicalArtButton {
+        padding: 20px 30px;
+        font-size: 1rem;
+    }
+
+    .pictureOfArt {
+        max-width: 800px;
+    }
+
+    .img-wrapper {
+        padding: 30px 70px;
+    }
+
+    .img-wrapper .img1,
+    .img2 {
+        padding: 25px 30px;
+        cursor: pointer;
+
+    }
+}
