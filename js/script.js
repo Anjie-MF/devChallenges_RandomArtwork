@@ -46,12 +46,25 @@ document.querySelector(".img1").addEventListener("click", () => {
 
 const copyContent = async () => {
     try {
-        const text = document.getElementById("artistName").innerText;
+        const copyButton = document.querySelector(".img2");
+        const text = copyButton.alt;
+
+        if (!text) {
+            console.error("No text found to copy!")
+            return
+        }
         await navigator.clipboard.writeText(text);
-        console.log('Copied!')
-    } catch (err) {
-        console.error('Failure to capture!', error);
+        alert("Copied to Clipboardd!");
+        console.log("Copied to clipboard:", text);
+
+        copyButton.classList.add("active");
+
+        setTimeout(() => {
+            copyButton.classList.remove("active");
+        }, 2000);
+    } catch (error) {
+        console.error("Failed to copy content:", err)
     }
 };
 
-document.querySelector(".img2").addEventListener("click", copyContent);
+document.getElementById("copyMe").addEventListener("click", copyContent);
