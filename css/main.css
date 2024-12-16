@@ -201,8 +201,8 @@ body {
     cursor: pointer;
 }
 
-.img2:active::after !imporant {
-    content: "Copied";
+.img2::after {
+    content: "Copied!";
     position: absolute;
     top: 100%;
     left: 50%;
@@ -211,22 +211,17 @@ body {
     font-family: "Outfit", sans-serif;
     font-size: 1rem;
     margin-top: 5px;
-    background-color: #20293A;
+    background-color: white;
     padding: 5px 10px;
     border-radius: 5px;
     white-space: nowrap;
-    opacity: 1;
+    opacity: 0;
+    pointer-events: none;
     animation: fadeOut 1s forwards;
 }
 
-@keyframes fadeOut {
-    0% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-    }
+.img2.active::after {
+    opacity: 1;
 }
 
 /* ---------------------Desktop Styles-------------------------*/
