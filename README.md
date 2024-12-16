@@ -41,7 +41,7 @@ My vacation ended on Sunday, and I returned to work. As a retail worker during t
 
 ### Link
 
-- Live Site Link: [Check Me Out!]()
+- Live Site Link: [Check Me Out!](https://anjie-mf.github.io/devChallenges_RandomArtwork/)
 
 ## My process
 
