@@ -194,6 +194,26 @@ header{
     text-align: center;
 }
 
+.icon-wrapper {
+    display: flex;
+    gap: 20px;
+    padding: 15px 0 20px;
+}
+
+.icon-wrapper i {
+    font-size: 1.5rem;
+    color: #97A3B6;
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid #97A3B6;
+    border-radius: 8px;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+.icon-wrapper i:hover {
+    color: #6466E9;
+    border-color: #6466E9;
+}
 
 /* ---------------------Desktop Styles-------------------------*/
 @media only screen and (min-width: 768px) {
