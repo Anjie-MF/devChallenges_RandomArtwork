@@ -157,6 +157,12 @@ header{
     cursor: pointer;
 }
 
+.contemporaryArtButton.selected,
+.classicalArtButton.selected {
+ background-color: #ff6b35;
+ color: white;
+}
+
 .pictureOfArt {
     display: flex;
     justify-content: center;
@@ -185,13 +191,6 @@ header{
     font-size: 1.5rem;
     text-align: center;
     margin: 10px 0;
-}
-
-#artistName.error {
-    color: white;
-    font-style: italic;
-    font-weight: bold;
-    text-align: center;
 }
 
 .icon-wrapper {
