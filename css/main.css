@@ -102,6 +102,12 @@ body {
     background-color: #111729;
 }
 
+header{
+    color: white;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
 .siteDescription {
     color: #97A3B6;
     font-family: "Outfit", sans-serif;
