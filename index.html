@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <script src="js/script.js" defer></script>
+    <script src="https://kit.fontawesome.com/106ba2589c.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
@@ -13,10 +14,13 @@
 </head>
 
 <body>
-    <div class="content-wrapper">
-        <h1 class="artistName" id="artistName">Loading artwork...</h1>
+    <header>
+        <h1>Random Artwork Generator</h1>
         <p class="siteDescription">Discover random works from the Art Institute of Chicago. Choose a style below, 
             then use the refresh button at the bottom to load a new piece in the same category.</p>
+    </header>
+    <div class="content-wrapper">
+        <h1 class="artistName" id="artistName">Loading artwork...</h1>
         <div class="imageContainer">
             <button class="contemporaryArtButton">Contemporary Art</button>
             <button class="classicalArtButton">Classical Art</button>
@@ -24,11 +28,8 @@
         <div class="pictureOfArt" id="pictureOfArt">
             <img src="img/placeholder.jpg" alt="Random artwork placeholder" id="artImage" style="max-width: 100%;">
         </div>
-    </div>
-    <div class="img-wrapper">
-        <img src="img/Regroup.svg" class="img1" id="randomArt" alt="click here to receive a random artwork">
-        <img src="img/link.svg" class="img2" id="copyMe" alt="click here to copy artwork to clipboard">
+       <i class="fa-solid fa-shuffle" aria-label="click here to receive a random artwork"></i>
+       <i class="fa-regular fa-copy" aria-label="click here to copy artwork to clipboard"></i>
     </div>
 </body>
-
 </html>
