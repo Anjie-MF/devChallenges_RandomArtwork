@@ -102,6 +102,16 @@ body {
     background-color: #111729;
 }
 
+.siteDescription {
+    color: #97A3B6;
+    font-family: "Outfit", sans-serif;
+    font-size: 0.875rem;
+    text-align: center;
+    max-width: 500px;
+    margin: 0 10px 10px;
+    line-height: 1.5;
+}
+
 .content-wrapper {
     background-color: #20293A;
     background-image: url(../img/bg-image-random-quote.svg);
@@ -175,54 +185,9 @@ body {
     color: white;
     font-style: italic;
     font-weight: bold;
-    text-align: cener;
+    text-align: center;
 }
 
-.img-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px;
-    padding: 10px 50px 20px;
-    width: auto;
-}
-
-.img-wrapper .img1,
-.img2 {
-    border: 2px solid #97A3B6;
-    color: #97A3B6;
-    padding: 10px 15px 5px;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-.img2 {
-    position: relative;
-    cursor: pointer;
-}
-
-.img2::after {
-    content: "Copied!";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    color: #4CAF50;
-    font-family: "Outfit", sans-serif;
-    font-size: 1rem;
-    margin-top: 5px;
-    background-color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    white-space: nowrap;
-    opacity: 0;
-    pointer-events: none;
-    animation: fadeOut 1s forwards;
-}
-
-.img2.active::after {
-    opacity: 1;
-}
 
 /* ---------------------Desktop Styles-------------------------*/
 @media only screen and (min-width: 768px) {
@@ -244,16 +209,6 @@ body {
 
     .pictureOfArt {
         max-width: 600px;
-    }
-
-    .img-wrapper {
-        padding: 20px 60px;
-    }
-
-    .img-wrapper .img1,
-    .img2 {
-        padding: 15px 20px;
-        cursor: pointer;
     }
 }
 
@@ -281,16 +236,5 @@ body {
 
     .pictureOfArt {
         max-width: 800px;
-    }
-
-    .img-wrapper {
-        padding: 30px 70px;
-    }
-
-    .img-wrapper .img1,
-    .img2 {
-        padding: 25px 30px;
-        cursor: pointer;
-
     }
 }
