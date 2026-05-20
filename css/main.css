@@ -99,17 +99,26 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #111729;
+    background-color: #1a1a18;
 }
 
 header{
-    color: white;
+    color: #f0ebe3;
     margin-bottom: 20px;
     text-align: center;
 }
 
+header h1 {
+    font-family: "Outfit", sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 1rem;
+    color: #f0ebe3;
+}
+
 .siteDescription {
-    color: #97A3B6;
+    color: #7a7a76;
     font-family: "Outfit", sans-serif;
     font-size: 0.875rem;
     text-align: center;
@@ -119,10 +128,8 @@ header{
 }
 
 .content-wrapper {
-    background-color: #20293A;
-    background-image: url(../img/bg-image-random-quote.svg);
-    background-repeat: repeat;
-    background-size: contain;
+    background-color: #252523;
+    border: 05px solid #3a3a38;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -130,10 +137,12 @@ header{
     border-radius: 20px;
 }
 
-.artistName {
-    color: #97A3B6;
+#artistName {
+    color: #f0ebe3;
     font-family: "Outfit", sans-serif;
-    font-size: 1.5rem;
+    font-size: 1rem;
+    padding: 15px 15px 0;
+    font-weight: 300;
     text-align: center;
     margin: 10px 0;
 }
@@ -146,23 +155,32 @@ header{
 
 .contemporaryArtButton,
 .classicalArtButton {
-    border: 1px solid #6466E9;
-    background-color: #20293A;
-    color: #6466E9;
-    padding: 8px;
+    border: 1px solid #c9a84c;
+    background-color: transparent;
+    color: #c9a84c;
+    padding: 8px 16px;
     margin: 10px;
     border-radius: 20px;
     font-family: "Outfit", sans-serif;
     font-size: 0.625rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     cursor: pointer;
+    transition: background-color 0.2s color 0.2s;
 }
 
 .contemporaryArtButton.selected,
 .classicalArtButton.selected {
- background-color: #ff6b35;
- color: white;
+ background-color: #c9a84c;
+ color: #1a1a18;
 }
 
+.contemporaryArtButton:hover,
+.classicalArtButton:hover {
+    background-color: #C9A84C;
+    color: #1A1A18;
+}
+    
 .pictureOfArt {
     display: flex;
     justify-content: center;
@@ -188,7 +206,8 @@ header{
 #artistName {
     color: white;
     font-family: "Outfit", sans-serif;
-    font-size: 1.5rem;
+    font-size: 1rem;
+    padding: 15px 15px 0;
     text-align: center;
     margin: 10px 0;
 }
@@ -201,17 +220,17 @@ header{
 
 .icon-wrapper i {
     font-size: 1.5rem;
-    color: #97A3B6;
+    color: #7a7a76;
     cursor: pointer;
     padding: 10px;
-    border: 1px solid #97A3B6;
+    border: 1px solid #3a3a38;
     border-radius: 8px;
     transition: color 0.2s, border-color 0.2s;
 }
 
 .icon-wrapper i:hover {
-    color: #6466E9;
-    border-color: #6466E9;
+    color: #c9a84c;
+    border-color: #c9a84c;
 }
 
 #copyMe.active {
@@ -219,22 +238,22 @@ header{
     border-color: #4CAF50;
 }
 
-/* ---------------------Desktop Styles-------------------------*/
+/* ---------------------Tablet Styles-------------------------*/
 @media only screen and (min-width: 768px) {
     .content-wrapper {
         max-width: 1000px;
         padding: 20px;
-        background-size: cover;
     }
 
-    .artistName {
-        font-size: 2rem;
+    #artistName {
+        font-size: 1.1rem;
+        padding: 20px 20px 0;
     }
 
     .contemporaryArtButton,
     .classicalArtButton {
-        padding: 12px 20px;
-        font-size: 0.75rem;
+        padding: 10px 20px;
+        font-size: 0.7rem;
     }
 
     .pictureOfArt {
@@ -245,23 +264,19 @@ header{
 /* ---------------------Desktop Styles-------------------------*/
 @media only screen and (min-width: 1280px) {
     .content-wrapper {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        max-width: 1500px;
+        max-width: 1200px;
         padding: 40px;
-        background-size: cover;
     }
 
     .artistName {
-        font-size: 3rem;
+        font-size: 1.25rem;
+        padding: 30px 30px 0;
     }
 
     .contemporaryArtButton,
     .classicalArtButton {
-        padding: 20px 30px;
-        font-size: 1rem;
+        padding: 12px 30px;
+        font-size: 0.75rem;
     }
 
     .pictureOfArt {
