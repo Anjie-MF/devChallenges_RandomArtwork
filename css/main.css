@@ -214,6 +214,11 @@ header{
     border-color: #6466E9;
 }
 
+#copyMe.active {
+    color: #4CAF50;
+    border-color: #4CAF50;
+}
+
 /* ---------------------Desktop Styles-------------------------*/
 @media only screen and (min-width: 768px) {
     .content-wrapper {
