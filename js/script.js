@@ -34,9 +34,6 @@ const getArtwork = async function (query = "") {
 
         document.getElementById("artistName").innerText = `${title} by ${artist}`;
         document.getElementById("pictureOfArt").innerHTML = `<img src="https://www.artic.edu/iiif/2/${imageId}/full/843,/0/default.jpg" alt="${title}" style="max-width: 100%;">`;
-
-        contemporaryBtn.classList.remove("selected");
-        classicalBtn.classList.remove("selected");
         
     } catch (error) {
         console.error("Failed to fetch artwork:", error);
@@ -46,36 +43,30 @@ const getArtwork = async function (query = "") {
 };
 getArtwork();
 
-document.querySelector(".contemporaryArtButton").addEventListener("click", () => {
-    getArtwork("&query=contemporary");
-});
-
-document.querySelector(".classicalArtButton").addEventListener("click", () => {
-    getArtwork("&query=classic");
-});
-
-document.querySelector(".img1").addEventListener("click", () => {
+document.querySelector("randomArt").addEventListener("click", () => {
     getArtwork("&query=");
+ contemporaryBtn.classList.remove("selected");
+classicalBtn.classList.remove("selected");
 });
 
 const copyContent = async () => {
     try {
-        const copyButton = document.querySelector(".img2");
-        const text = copyButton.alt;
+const title = document.getElementById("artistName").innerText;
 
-        if (!text) {
-            console.error("No text found to copy!")
-            return
+        if(!title) {
+            console.error("No title found to copy!");
+            return;
         }
-        await navigator.clipboard.writeText(text);
-        alert("Copied to Clipboardd!");
-        console.log("Copied to clipboard:", text);
 
+        await navigator.clipboard.writeText(title);
+
+        const copyButton = document.getElementById("copyMe");
         copyButton.classList.add("active");
 
         setTimeout(() => {
             copyButton.classList.remove("active");
         }, 2000);
+        
     } catch (error) {
         console.error("Failed to copy content:", error)
     }
