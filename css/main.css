@@ -166,7 +166,7 @@ header h1 {
     letter-spacing: 0.08em;
     text-transform: uppercase;
     cursor: pointer;
-    transition: background-color 0.2s color 0.2s;
+    transition: background-color 0.2s, color 0.2s;
 }
 
 .contemporaryArtButton.selected,
@@ -189,7 +189,7 @@ header h1 {
     padding: 10px;
     width: 100%;
     max-width: 800px;
-    background-color: #20293A;
+    background-color: #252523;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
@@ -204,7 +204,7 @@ header h1 {
 }
 
 #artistName {
-    color: white;
+    color: #f0ebe3;
     font-family: "Outfit", sans-serif;
     font-size: 1rem;
     padding: 15px 15px 0;
@@ -268,7 +268,7 @@ header h1 {
         padding: 40px;
     }
 
-    .artistName {
+    #artistName {
         font-size: 1.25rem;
         padding: 30px 30px 0;
     }
