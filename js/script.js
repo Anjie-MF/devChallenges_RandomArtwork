@@ -1,3 +1,17 @@
+const contemporaryBtn = document.querySelector(".contemporaryArtButton");
+const classicalBtn = document.querySelector(".classicalArtButton");
+
+contemporaryBtn.addEventListener("click", () => {
+    getArtwork("&query=contemporary");
+    contemporaryBtn.classList.add("selected");
+    classicalBtn.classList.remove("selected");
+});
+
+classicalBtn.addEventListener("click", () => {
+    getArtwork("&query=classic");
+    classicalBtn.classList.add("selected");
+    contemporaryBtn.classList.remove("selected");
+});
 
 const getArtwork = async function (query = "") {
     try {
@@ -20,6 +34,10 @@ const getArtwork = async function (query = "") {
 
         document.getElementById("artistName").innerText = `${title} by ${artist}`;
         document.getElementById("pictureOfArt").innerHTML = `<img src="https://www.artic.edu/iiif/2/${imageId}/full/843,/0/default.jpg" alt="${title}" style="max-width: 100%;">`;
+
+        contemporaryBtn.classList.remove("selected");
+        classicalBtn.classList.remove("selected");
+        
     } catch (error) {
         console.error("Failed to fetch artwork:", error);
         document.getElementById("artistName").innerText = "Failed to load artwork.";
@@ -30,15 +48,11 @@ getArtwork();
 
 document.querySelector(".contemporaryArtButton").addEventListener("click", () => {
     getArtwork("&query=contemporary");
-
 });
 
 document.querySelector(".classicalArtButton").addEventListener("click", () => {
     getArtwork("&query=classic");
 });
-
-document.getElementById("artistName").classList.add("error");
-
 
 document.querySelector(".img1").addEventListener("click", () => {
     getArtwork("&query=");
@@ -63,7 +77,7 @@ const copyContent = async () => {
             copyButton.classList.remove("active");
         }, 2000);
     } catch (error) {
-        console.error("Failed to copy content:", err)
+        console.error("Failed to copy content:", error)
     }
 };
 
