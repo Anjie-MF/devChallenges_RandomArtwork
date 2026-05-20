@@ -199,7 +199,7 @@ header{
     padding: 15px 0 20px;
 }
 
-icon-wrapper i {
+.icon-wrapper i {
     font-size: 1.5rem;
     color: #97A3B6;
     cursor: pointer;
@@ -212,6 +212,11 @@ icon-wrapper i {
 .icon-wrapper i:hover {
     color: #6466E9;
     border-color: #6466E9;
+}
+
+#copyMe.active {
+    color: #4CAF50;
+    border-color: #4CAF50;
 }
 
 /* ---------------------Desktop Styles-------------------------*/
