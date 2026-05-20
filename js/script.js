@@ -46,15 +46,7 @@ const getArtwork = async function (query = "") {
 };
 getArtwork();
 
-document.querySelector(".contemporaryArtButton").addEventListener("click", () => {
-    getArtwork("&query=contemporary");
-});
-
-document.querySelector(".classicalArtButton").addEventListener("click", () => {
-    getArtwork("&query=classic");
-});
-
-document.querySelector(".img1").addEventListener("click", () => {
+document.querySelector("randomArt").addEventListener("click", () => {
     getArtwork("&query=");
 });
 
