@@ -43,7 +43,7 @@ const getArtwork = async function (query = "") {
 };
 getArtwork();
 
-document.querySelector("randomArt").addEventListener("click", () => {
+document.querySelector("#randomArt").addEventListener("click", () => {
     getArtwork("&query=");
  contemporaryBtn.classList.remove("selected");
 classicalBtn.classList.remove("selected");
