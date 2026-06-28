@@ -2,20 +2,20 @@ const contemporaryBtn = document.querySelector(".contemporaryArtButton");
 const classicalBtn = document.querySelector(".classicalArtButton");
 
 contemporaryBtn.addEventListener("click", () => {
-    getArtwork("&query=contemporary");
+    getArtwork("contemporary");
     contemporaryBtn.classList.add("selected");
     classicalBtn.classList.remove("selected");
 });
 
 classicalBtn.addEventListener("click", () => {
-    getArtwork("&query=classic");
+    getArtwork("classic");
     classicalBtn.classList.add("selected");
     contemporaryBtn.classList.remove("selected");
 });
 
-const getArtwork = async function (query = "") {
+const getArtwork = async function (query = "art") {
     try {
-        const apiURL = `https://api.artic.edu/api/v1/artworks?fields=id,title,artist_display,image_id${query}`;
+        const apiURL = `https://api.artic.edu/api/v1/artworks/search?q=${query}&fields=id,title,artist_display,image_id&query[term][is_public_domain]=true&query[exists][field]=image_id`; 
         const response = await fetch(apiURL);
 
         if (!response.ok) {
@@ -32,9 +32,13 @@ const getArtwork = async function (query = "") {
         const artist = randomArtwork.artist_display;
         const imageId = randomArtwork.image_id;
 
+        if(!imageId){
+            throw new Error("Artwork has no image");
+        }
+
         document.getElementById("artistName").innerText = `${title} by ${artist}`;
         document.getElementById("pictureOfArt").innerHTML = `<img src="https://www.artic.edu/iiif/2/${imageId}/full/843,/0/default.jpg" alt="${title}" style="max-width: 100%;">`;
-        
+
     } catch (error) {
         console.error("Failed to fetch artwork:", error);
         document.getElementById("artistName").innerText = "Failed to load artwork.";
@@ -44,8 +48,8 @@ const getArtwork = async function (query = "") {
 getArtwork();
 
 document.querySelector("#randomArt").addEventListener("click", () => {
-    getArtwork("&query=");
- contemporaryBtn.classList.remove("selected");
+getArtwork("art");
+contemporaryBtn.classList.remove("selected");
 classicalBtn.classList.remove("selected");
 });
 
