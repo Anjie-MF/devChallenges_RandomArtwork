@@ -15,7 +15,7 @@ classicalBtn.addEventListener("click", () => {
 
 const getArtwork = async function (query = "art") {
     try {
-        const apiURL = `https://api.artic.edu/api/v1/artworks?q=${query}&fields=id,title,artist_display,image_id&is_public_domain=true&limit=50`;
+        const apiURL = `https://api.artic.edu/api/v1/artworks/search?q=${query}&fields=id,title,artist_display,image_id&query[term][is_public_domain]=true&limit=50`;
         const response = await fetch(apiURL);
 
         if (!response.ok) {
