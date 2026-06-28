@@ -2,20 +2,20 @@ const contemporaryBtn = document.querySelector(".contemporaryArtButton");
 const classicalBtn = document.querySelector(".classicalArtButton");
 
 contemporaryBtn.addEventListener("click", () => {
-    getArtwork("&query=contemporary");
+    getArtwork("contemporary");
     contemporaryBtn.classList.add("selected");
     classicalBtn.classList.remove("selected");
 });
 
 classicalBtn.addEventListener("click", () => {
-    getArtwork("&query=classic");
+    getArtwork("classic");
     classicalBtn.classList.add("selected");
     contemporaryBtn.classList.remove("selected");
 });
 
 const getArtwork = async function (query = "") {
     try {
-        const apiURL = `https://api.artic.edu/api/v1/artworks?fields=id,title,artist_display,image_id${query}`;
+        const apiURL = `https://api.artic.edu/api/v1/artworks/search?q=${query}&fields=id,title,artist_display,image_id`;
         const response = await fetch(apiURL);
 
         if (!response.ok) {
