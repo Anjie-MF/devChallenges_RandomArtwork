@@ -13,31 +13,47 @@ classicalBtn.addEventListener("click", () => {
     contemporaryBtn.classList.remove("selected");
 });
 
-const getArtwork = async function (query = "art") {
+const getArtwork = async function (query = "painting") {
     try {
-        const apiURL = `https://api.artic.edu/api/v1/artworks/search?q=${query}&fields=id,title,artist_display,image_id&query[term][is_public_domain]=true&query[exists][field]=image_id`; 
+        const apiURL = `https://api.artic.edu/api/v1/artworks/search?q=${query}&fields=id,title,artist_display,image_id&query[term][is_public_domain]=true&limit=50`;
         const response = await fetch(apiURL);
 
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
+
         const data = await response.json();
+        const iiifBase = data.config?.iiif_url || "https://www.artic.edu/iiif/2";
+        
         if (!data.data || data.data.length === 0) {
             throw new Error("No artwork found");
         }
 
-        const randomIndex = Math.floor(Math.random() * data.data.length);
-        const randomArtwork = data.data[randomIndex];
+        const artworksWithImages = data.data.filter(
+            artwork => artwork.image_id
+        );
+
+        if (artworksWithImages.length === 0) {
+            throw new Error("No artwork with images found.");
+        }
+
+        const randomIndex = Math.floor(
+            Math.random() * artworksWithImages.length
+        );
+
+        const randomArtwork = artworksWithImages[randomIndex];
+
         const title = randomArtwork.title;
         const artist = randomArtwork.artist_display;
         const imageId = randomArtwork.image_id;
 
-        if(!imageId){
-            throw new Error("Artwork has no image");
-        }
+        const imageUrl = `${iiifBase}/${imageId}/full/843,/0/default.jpg`; 
+        
+        document.getElementById("artistName").innerText =
+            `${title} by ${artist}`;
 
-        document.getElementById("artistName").innerText = `${title} by ${artist}`;
-        document.getElementById("pictureOfArt").innerHTML = `<img src="https://www.artic.edu/iiif/2/${imageId}/full/843,/0/default.jpg" alt="${title}" style="max-width: 100%;">`;
+        document.getElementById("pictureOfArt").innerHTML =
+            `<img src="${imageUrl}" alt="${title}" style="max-width: 100%;">`;
 
     } catch (error) {
         console.error("Failed to fetch artwork:", error);
@@ -48,7 +64,7 @@ const getArtwork = async function (query = "art") {
 getArtwork();
 
 document.querySelector("#randomArt").addEventListener("click", () => {
-getArtwork("art");
+getArtwork("painting");
 contemporaryBtn.classList.remove("selected");
 classicalBtn.classList.remove("selected");
 });
