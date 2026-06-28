@@ -13,7 +13,7 @@ classicalBtn.addEventListener("click", () => {
     contemporaryBtn.classList.remove("selected");
 });
 
-const getArtwork = async function (query = "art") {
+const getArtwork = async function (query = "painting") {
     try {
         const apiURL = `https://api.artic.edu/api/v1/artworks/search?q=${query}&fields=id,title,artist_display,image_id&query[term][is_public_domain]=true&limit=50`;
         const response = await fetch(apiURL);
