@@ -13,16 +13,15 @@ classicalBtn.addEventListener("click", () => {
     contemporaryBtn.classList.remove("selected");
 });
 
-const getArtwork = async function (query = "") {
+const getArtwork = async function (query = "art") {
     try {
-        const apiURL = `https://api.artic.edu/api/v1/artworks/search?q=${query}&fields=id,title,artist_display,image_id`;
+        const apiURL = `https://api.artic.edu/api/v1/artworks/search?q=${query}&fields=id,title,artist_display,image_id&query[term][is_public_domain]=true&query[exists][field]=image_id`; 
         const response = await fetch(apiURL);
 
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
-        
         if (!data.data || data.data.length === 0) {
             throw new Error("No artwork found");
         }
@@ -49,7 +48,7 @@ const getArtwork = async function (query = "") {
 getArtwork();
 
 document.querySelector("#randomArt").addEventListener("click", () => {
-getArtwork("");
+getArtwork("art");
 contemporaryBtn.classList.remove("selected");
 classicalBtn.classList.remove("selected");
 });
