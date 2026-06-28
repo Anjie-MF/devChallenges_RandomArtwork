@@ -57,7 +57,7 @@ const getArtwork = async function (query = "painting") {
         // `<img src="${iiifUrl}/${imageId}/full/full/0/default.jpg" alt="${title}" style="max-width: 100%;">`   TESTING KEEP THIS IN IF OTHER TEST DOENT WORK;
 
         document.getElementById("pictureOfArt").innerHTML =
-`<img src="https://picsum.photos/600/400" alt="test" style="max-width:100%;">`;
+        `<img src="https://picsum.photos/600/400" alt="test" style="max-width:100%;">`;
         
     } catch (error) {
         console.error("Failed to fetch artwork:", error);
