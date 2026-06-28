@@ -15,45 +15,30 @@ classicalBtn.addEventListener("click", () => {
 
 const getArtwork = async function (query = "painting") {
     try {
-        const apiURL = `https://api.artic.edu/api/v1/artworks/search?q=${query}&fields=id,title,artist_display,image_id&query[term][is_public_domain]=true&limit=50`;
-        const response = await fetch(apiURL);
+        const searchURL = `https://collectionapi.metmuseum.org/public/collection/v1/search?q=${query}&hasImages=true&isPublicDomain=true`;
+        const searchResponse = await fetch(searchURL);
 
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+        if (!searchResponse.ok) {
+            throw new Error(`HTTP error! status: ${searchResponse.status}`);
         }
 
-        const data = await response.json();
-        const iiifBase = data.config?.iiif_url || "https://www.artic.edu/iiif/2";
-        
-        if (!data.data || data.data.length === 0) {
+        const searchData = await searchResponse.json();
+
+        if (!searchData.objectIDs || searchData.objectIDs.length === 0) {
             throw new Error("No artwork found");
         }
 
-        const artworksWithImages = data.data.filter(
-            artwork => artwork.image_id
-        );
+        const randomId = searchData.objectIDs[Math.floor(Math.random() * searchData.objectIDs.length)];
 
-        if (artworksWithImages.length === 0) {
-            throw new Error("No artwork with images found.");
+        const detailResponse = await fetch(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${randomId}`);
+        const artwork = await detailResponse.json();
+
+        if (!artwork.primaryImage) {
+            throw new Error("No image available");
         }
 
-        const randomIndex = Math.floor(
-            Math.random() * artworksWithImages.length
-        );
-
-        const randomArtwork = artworksWithImages[randomIndex];
-
-        const title = randomArtwork.title;
-        const artist = randomArtwork.artist_display;
-        const imageId = randomArtwork.image_id;
-
-        const imageUrl = `${iiifBase}/${imageId}/full/843,/0/default.jpg`; 
-        
-        document.getElementById("artistName").innerText =
-            `${title} by ${artist}`;
-
-        document.getElementById("pictureOfArt").innerHTML =
-            `<img src="${imageUrl}" alt="${title}" style="max-width: 100%;">`;
+        document.getElementById("artistName").innerText = `${artwork.title} by ${artwork.artistDisplayName || "Unknown Artist"}`;
+        document.getElementById("pictureOfArt").innerHTML = `<img src="${artwork.primaryImageSmall}" alt="${artwork.title}" style="max-width: 100%;">`;
 
     } catch (error) {
         console.error("Failed to fetch artwork:", error);
