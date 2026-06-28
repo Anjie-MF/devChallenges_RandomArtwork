@@ -65,7 +65,7 @@ const getArtwork = async function (query = "art") {
 getArtwork();
 
 document.querySelector("#randomArt").addEventListener("click", () => {
-getArtwork("art");
+getArtwork("painting");
 contemporaryBtn.classList.remove("selected");
 classicalBtn.classList.remove("selected");
 });
