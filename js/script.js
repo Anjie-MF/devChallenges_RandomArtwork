@@ -54,7 +54,7 @@ const getArtwork = async function (query = "art") {
         const iiifUrl = data.config.iiif_url;
 
         document.getElementById("pictureOfArt").innerHTML =
-        `<img src="${iiifUrl}/${imageId}/full/843,/0/default.jpg" alt="${title}" style="max-width: 100%;">`;
+        `<img src="${iiifUrl}/${imageId}/full/full/0/default.jpg" alt="${title}" style="max-width: 100%;">`;
         
     } catch (error) {
         console.error("Failed to fetch artwork:", error);
