@@ -26,15 +26,28 @@ const getArtwork = async function (query = "art") {
             throw new Error("No artwork found");
         }
 
-        const randomIndex = Math.floor(Math.random() * data.data.length);
-        const randomArtwork = data.data[randomIndex];
+        // const randomIndex = Math.floor(Math.random() * data.data.length);
+        // const randomArtwork = data.data[randomIndex];
+        const artworksWithImages = data.data.filter(
+        artwork => artwork.image_id
+        );
+
+        if (artworksWithImages.length === 0) {
+        throw new Error("No artwork with images found.");
+        }
+
+        const randomIndex = Math.floor(
+        Math.random() * artworksWithImages.length
+        );
+
+        const randomArtwork = artworksWithImages[randomIndex];        
         const title = randomArtwork.title;
         const artist = randomArtwork.artist_display;
         const imageId = randomArtwork.image_id;
 
-        if(!imageId){
-            throw new Error("Artwork has no image");
-        }
+        // if(!imageId){
+        //     throw new Error("Artwork has no image");
+        // }
 
         document.getElementById("artistName").innerText = `${title} by ${artist}`;
         document.getElementById("pictureOfArt").innerHTML = `<img src="https://www.artic.edu/iiif/2/${imageId}/full/843,/0/default.jpg" alt="${title}" style="max-width: 100%;">`;
