@@ -50,8 +50,12 @@ const getArtwork = async function (query = "art") {
         // }
 
         document.getElementById("artistName").innerText = `${title} by ${artist}`;
-        document.getElementById("pictureOfArt").innerHTML = `<img src="https://www.artic.edu/iiif/2/${imageId}/full/843,/0/default.jpg" alt="${title}" style="max-width: 100%;">`;
+        // document.getElementById("pictureOfArt").innerHTML = `<img src="https://www.artic.edu/iiif/2/${imageId}/full/843,/0/default.jpg" alt="${title}" style="max-width: 100%;">`;
+        const iiifUrl = data.config.iiif_url;
 
+        document.getElementById("pictureOfArt").innerHTML =
+        `<img src="${iiifUrl}/${imageId}/full/843,/0/default.jpg" alt="${title}" style="max-width: 100%;">`;
+        
     } catch (error) {
         console.error("Failed to fetch artwork:", error);
         document.getElementById("artistName").innerText = "Failed to load artwork.";
