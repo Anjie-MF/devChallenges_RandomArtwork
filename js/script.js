@@ -23,7 +23,8 @@ const getArtwork = async function (query = "painting") {
         }
 
         const data = await response.json();
-
+        const iiifBase = data.config?.iiif_url || "https://www.artic.edu/iiif/2";
+        
         if (!data.data || data.data.length === 0) {
             throw new Error("No artwork found");
         }
@@ -46,8 +47,8 @@ const getArtwork = async function (query = "painting") {
         const artist = randomArtwork.artist_display;
         const imageId = randomArtwork.image_id;
 
-        const imageUrl = `https://www.artic.edu/iiif/2/${imageId}/full/843,/0/none.jpg`;
-
+        const imageUrl = `${iiifBase}/${imageId}/full/843,/0/default.jpg`; 
+        
         document.getElementById("artistName").innerText =
             `${title} by ${artist}`;
 
