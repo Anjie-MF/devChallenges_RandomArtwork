@@ -36,12 +36,16 @@ This challenge was an excellent opportunity to gain practical experience utilizi
 
 I had the opportunity to dive deep into several new concepts this week. While I didn't finish the project by Saturday, I gained a much deeper understanding and appreciation for JavaScript APIs. I commend the efforts of the developers who create and maintain these powerful tools. I've learned some new best practices that I'm excited to implement moving forward. <br>
 
-My vacation ended on Sunday, and I returned to work. As a retail worker during the busy Christmas season, I had to be strategic with my time. This required me to make quick and efficient decisions, such as when I switched from random quotes to random artworks due to limitations in my unsecured HTTP environment.
+My vacation ended on Sunday, and I returned to work. As a retail worker during the busy Christmas season, I had to be strategic with my time. This required me to make quick, efficient decisions, such as switching from random quotes to random artworks due to limitations in my unsecured HTTP environment.
 
+**UPDATE: JUNE 2026**
+
+Originally built using the Art Institute of Chicago API. Before I received my certification, my teacher performed a rigorous QA and discovered that the images were no longer loading. After debugging, I confirmed the AIC had implemented cross-origin hotlink protection that blocked third-party deployments, which, hours later, I discovered was unrelated 
+to my code. I migrated to the Metropolitan Museum of Art API to resolve the issue.
 
 ### Link
 
-- Live Site Link: [Check Me Out!](https://anjie-mf.github.io/devChallenges_RandomArtwork/)
+- Live Site Link: [Check Me Out!](https://dev-challenges-random-artwork.vercel.app/)
 
 ## My process
 
@@ -53,10 +57,9 @@ My vacation ended on Sunday, and I returned to work. As a retail worker during t
 - CSS Grid
 - Mobile-first workflow
 - Javascript
+- Metropolitan Museum of Art Collection API
 
 ### What I'm Proud Of
-
-You can add code snippets using the syntax:
 
 ```js
      catch (error) {
