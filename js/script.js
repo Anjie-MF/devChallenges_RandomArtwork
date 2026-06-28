@@ -22,6 +22,7 @@ const getArtwork = async function (query = "") {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
+        
         if (!data.data || data.data.length === 0) {
             throw new Error("No artwork found");
         }
@@ -32,9 +33,13 @@ const getArtwork = async function (query = "") {
         const artist = randomArtwork.artist_display;
         const imageId = randomArtwork.image_id;
 
+        if(!imageId){
+            throw new Error("Artwork has no image");
+        }
+
         document.getElementById("artistName").innerText = `${title} by ${artist}`;
         document.getElementById("pictureOfArt").innerHTML = `<img src="https://www.artic.edu/iiif/2/${imageId}/full/843,/0/default.jpg" alt="${title}" style="max-width: 100%;">`;
-        
+
     } catch (error) {
         console.error("Failed to fetch artwork:", error);
         document.getElementById("artistName").innerText = "Failed to load artwork.";
@@ -44,8 +49,8 @@ const getArtwork = async function (query = "") {
 getArtwork();
 
 document.querySelector("#randomArt").addEventListener("click", () => {
-    getArtwork("&query=");
- contemporaryBtn.classList.remove("selected");
+getArtwork("");
+contemporaryBtn.classList.remove("selected");
 classicalBtn.classList.remove("selected");
 });
 
